@@ -4,13 +4,14 @@
 
 <div data-controller="search-games" class="search_index_games">
   <div class="search_bar">
-    <%= form_with url: games_path, method: :get, html: {data: {search_games_target: "form"}} do |f| %>
+    <%= form_with url: games_path, method: :get, html: {data: {search_games_target: "form", controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} do |f| %>
       <%= f.text_field :query,
-                        class: "form-control",
+                        class: "form-control d-none",
                         placeholder: "Address",
                         value: params[:query],
                         data: {
                           search_games_target: "input",
+                          address_autocomplete_target: "address",
                           action: "keyup->search-games#update"
                         } %>
     <% end %>
