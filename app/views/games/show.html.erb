@@ -1,5 +1,4 @@
-<div class="scrollable-chatroom" data-controller="chatroom"
-  data-chatroom-chatroom-id-value="<%= @chatroom.id %>">
+<div class="scrollable-chatroom" >
   <div class="show-banner">
     <h2><%= @game.game_type.name %> game</h2>
   </div>
@@ -80,7 +79,7 @@
       <%#= f.submit "Send", class: "btn btn-primary mb-3", data: { chatroom_target:"button"} %>
     <%# end %>
     <div class="flex">
-      <%= link_to 'Go to chatroom', chatroom_path(@chatroom.game_id), class:"launch-chat-button"%>
+      <%= link_to 'Go to chatroom', chatroom_path(@chatroom), class:"launch-chat-button"%>
     </div>
 
   </div>
@@ -113,3 +112,6 @@
     </div>
   </div>
 </div>
+
+<a href="whatsapp://send?text=<%= game_url(@game)  %>">link to whatsapp</a>
+

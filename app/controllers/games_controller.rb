@@ -20,6 +20,7 @@ class GamesController < ApplicationController
   def show
     @message = Message.new
     @participation = Participation.new
+    @chatroom = @game.chatroom
   end
 
   def new
